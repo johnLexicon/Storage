@@ -24,6 +24,21 @@ namespace Storage.Controllers
             return View(await _context.Product.ToListAsync());
         }
 
+        public async Task<IActionResult> Available()
+        {
+
+            IEnumerable<ProductViewModel> viewModelCollection = _context.Product.Select(p => new ProductViewModel()
+            {
+                Name = p.Name,
+                Price = p.Price,
+                Count = p.Count,
+                Sum = p.Count * p.Price
+            });
+
+            return View(viewModelCollection);
+
+        }
+
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -148,5 +163,7 @@ namespace Storage.Controllers
         {
             return _context.Product.Any(e => e.Id == id);
         }
+
+
     }
 }
