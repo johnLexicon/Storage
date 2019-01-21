@@ -24,7 +24,18 @@ namespace Storage.Controllers
             return View(await _context.Product.ToListAsync());
         }
 
-        public async Task<IActionResult> Available()
+        public IActionResult Electronics()
+        {
+            var model = _context.Product.Where(p => p.Category.Equals("Electronics")).ToList();
+            return View(model);
+        }
+
+        public IActionResult SoldOut()
+        {
+            return View();
+        }
+
+        public IActionResult Available()
         {
 
             IEnumerable<ProductViewModel> viewModelCollection = _context.Product.Select(p => new ProductViewModel()
