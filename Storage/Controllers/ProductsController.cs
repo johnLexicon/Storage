@@ -35,7 +35,7 @@ namespace Storage.Controllers
             return View();
         }
 
-        public IActionResult Available()
+        public IActionResult ProductsSum()
         {
 
             IEnumerable<ProductViewModel> viewModelCollection = _context.Product.Select(p => new ProductViewModel()
