@@ -37,7 +37,7 @@ namespace Storage
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<StorageContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("StorageContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("StorageContextMac")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
