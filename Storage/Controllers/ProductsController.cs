@@ -32,7 +32,8 @@ namespace Storage.Controllers
 
         public IActionResult SoldOut()
         {
-            return View();
+            var model = _context.Product.Where(p => p.Count == 0);
+            return View(model);
         }
 
         public IActionResult Available()
